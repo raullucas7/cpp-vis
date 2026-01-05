@@ -7,8 +7,19 @@
 
 class AudioEngine {
 public:
+    AudioEngine();
+    ~AudioEngine();
+
+    bool loadFile(const std::string& filePath);
+    void play();
+    
+    // analysis occurs here
+    float getLoudestMomentTime(float& outMaxAmplitude);
+    void printAnalysis() const;
 
 private:
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
 };
 
 #endif
